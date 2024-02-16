@@ -66,7 +66,7 @@
                                         <template v-if="selectedNavItem==game.type" v-for="(item,i) in game.list">
                                             <div class="game-item no-animate" v-if="i < 6" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
                                                 <img class="game-img" v-if="game.type == 3" :src="'https://lucas999.prerelease-env.biz/game_pic/square/200/'+item.gameid+'.png'" />
-                                                <img class="game-img" v-else :src="sourceUrl+item.roomid+'_'+GLOBAL.lanCode+'.png'" />
+                                                <img class="game-img" v-else :src="require('../../assets/hot/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
                                             </div>
                                         </template>
                                     </template>
@@ -105,7 +105,7 @@
                                     <template v-for="(item,i) in allGame.list">
                                         <div class="game-item no-animate" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
                                             <img class="game-img" v-if="allGame.type == 3" :src="'https://lucas999.prerelease-env.biz/game_pic/square/200/'+item.gameid+'.png'" />
-                                            <img class="game-img" v-else :src="sourceUrl+item.roomid+'_'+GLOBAL.lanCode+'.png'" />
+                                            <img class="game-img" v-else :src="require('../../assets/hot/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
                                         </div>
                                     </template>
                                 </div>
