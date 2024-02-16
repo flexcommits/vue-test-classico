@@ -57,7 +57,7 @@
                                 <div class="list-game-bacarat">
                                     <template v-for="(game, index) in gameList">
                                         <div v-if="selectedNavItem==game.type" class="game-menu">
-                                            <img class="menu-icon" :src="sourceUrl+game.title+'.png'" />
+                                            <img class="menu-icon" :src="require('../../assets/game/'+game.title+'.png')" />
                                             <span>{{game.title}}</span>
                                             <div class="right">
                                                 <div class="all" @click="showAllGame(game.type)">{{GLOBAL.lanLocal['all']}} {{game.list.length}}</div>
