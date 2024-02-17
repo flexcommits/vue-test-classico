@@ -36,7 +36,7 @@
                         <input class="login-button" type="button" @click="doDeposit" :value="GLOBAL.lanLocal['submit']" />
                     </div>
                 </div>
-                <div class="s-box c-box">
+                <div class="s-box">
                     <div class="button">
                         <input class="register-button" type="button" @click="toC()" :value="GLOBAL.lanLocal['contact']" />
                     </div>
@@ -672,8 +672,12 @@ export default {
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 .main-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20%;
     height: 100%;
-    width: 30%;
+    width: 450px;
     padding: 10px 0 80px;
     box-sizing: border-box;
 }
@@ -1399,7 +1403,14 @@ input:-ms-input-placeholder {
         }
 
         .button {
-            width: 100%;
+            margin-left: -65px;
+            width: 80%;
+        }
+
+        @media only screen and (max-width: 450px) {
+            .button {
+                margin-left: 0px;
+            }
         }
     }
 }
@@ -1408,13 +1419,10 @@ input:-ms-input-placeholder {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-
-    .recharge-item-mid {
-        margin-left: 2%;
-        margin-right: 2%;
-    }
+    width: 100%;
 
     .recharge-item {
+        margin: 2px;
         width: 105px;
         height: 70px;
         border-radius: 5px;
@@ -1470,6 +1478,12 @@ input:-ms-input-placeholder {
         }
     }
 
+    @media only screen and (max-width: 450px) {
+        .recharge-item {
+            width: 30%;
+        }
+    }
+
     .active {
         background: hsla(0,0%,100%,.2);
 
@@ -1499,7 +1513,9 @@ input:-ms-input-placeholder {
     .main-page {
         background-color: #141212;
         width: 100%;
-
+        margin-left: 0px;
+        padding-left: 5px;
+        
         .page-title {
             background-color: #141212;
         }
