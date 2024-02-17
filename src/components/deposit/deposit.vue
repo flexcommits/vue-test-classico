@@ -1409,7 +1409,7 @@ input:-ms-input-placeholder {
 
         @media only screen and (max-width: 450px) {
             .button {
-                margin-left: 0px;
+                margin-left: -5px;
             }
         }
     }
@@ -1420,6 +1420,7 @@ input:-ms-input-placeholder {
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
+    margin-left: 3px;
 
     .recharge-item {
         margin: 2px;

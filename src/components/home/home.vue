@@ -1565,6 +1565,7 @@ export default {
 }
 .copyright {
     margin-top: 10px;
+    margin-bottom: 80px;
     color: rgb(119,119,119);
 }
 .game-cover {
