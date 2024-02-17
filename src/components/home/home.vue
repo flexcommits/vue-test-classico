@@ -64,7 +64,7 @@
                                             </div>
                                         </div>
                                         <template v-if="selectedNavItem==game.type" v-for="(item,i) in game.list">
-                                            <div class="game-item no-animate" v-if="i < 6" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
+                                            <div class="game-item no-animate" v-if="i < 9" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
                                                 <img class="game-img" v-if="selectedNavItem == 4" :src="require('../../assets/game/pg/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
                                                 <img class="game-img" v-else-if="selectedNavItem == 3" :src="require('../../assets/game/pp/'+item.gameid+'.png')" />
                                                 <img class="game-img" v-else-if="selectedNavItem == 1" :src="require('../../assets/game/tribo/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
@@ -1216,7 +1216,7 @@ export default {
     height: auto;
     position: relative;
     box-sizing: border-box;
-    margin: 10px 12px;
+    margin: 5px;
 
     .v-btn {
         border: none;
@@ -1298,6 +1298,12 @@ export default {
         display: block;
         visibility: visible;
         opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .game-item {
+        width: 30% !important;
     }
 }
 
