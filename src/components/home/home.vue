@@ -70,10 +70,10 @@
                                         </div>
                                         <template v-if="selectedNavItem==game.type" v-for="(item,i) in game.list">
                                             <div class="game-item no-animate" v-if="i < 9" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
-                                                <img class="game-img" v-if="selectedNavItem == 4" :src="require('../../assets/game/pg/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
+                                                <img class="game-img" v-if="selectedNavItem == 4" :src="require('../../assets/game/pg/'+item.roomid+'.png')" />
                                                 <img class="game-img" v-else-if="selectedNavItem == 3" :src="require('../../assets/game/pp/'+item.gameid+'.png')" />
                                                 <img class="game-img" v-else-if="selectedNavItem == 1" :src="require('../../assets/game/tribo/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
-                                                <img class="game-img" v-else :src="require('../../assets/game/hot/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
+                                                <img class="game-img" v-else :src="require('../../assets/game/hot/'+item.roomid+'.png')" />
                                             </div>
                                         </template>
                                     </template>
@@ -111,10 +111,10 @@
                                     </div>
                                     <template v-for="(item,i) in allGame.list">
                                         <div class="game-item no-animate" @click="toGame(item.gameid, item.type, item.roomid, item.open, item)">
-                                            <img class="game-img" v-if="selectedNavItem == 4" :src="require('../../assets/game/pg/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
+                                            <img class="game-img" v-if="selectedNavItem == 4" :src="require('../../assets/game/pg/'+item.roomid+'.png')" />
                                             <img class="game-img" v-else-if="selectedNavItem == 3" :src="require('../../assets/game/pp/'+item.gameid+'.png')" />
                                             <img class="game-img" v-else-if="selectedNavItem == 1" :src="require('../../assets/game/tribo/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
-                                            <img class="game-img" v-else :src="require('../../assets/game/hot/'+item.roomid+'_'+GLOBAL.lanCode+'.png')" />
+                                            <img class="game-img" v-else :src="require('../../assets/game/hot/'+item.roomid+'.png')" />
                                         </div>
                                     </template>
                                 </div>
@@ -1167,6 +1167,7 @@ export default {
     flex-wrap: wrap;
     align-content: baseline;
     width: 100%;
+    margin-bottom: 70px;
 }
 
 .game-menu {
