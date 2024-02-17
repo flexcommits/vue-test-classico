@@ -1,6 +1,11 @@
 <template>
     <div>
         <div class="main-page" v-if="!allGameCover">
+            <div class="line-box" style="bottom: 215px;">
+                <a class="contack-link" :href="lineCustomer" target="_blank">
+                    <img class="line-icon" style="width: 60px; height: 60px; margin-right: -5px;" :src="require('../../assets/save.png')" />
+                </a>
+            </div>
             <div class="line-box" style="bottom: 160px;">
                 <a class="contack-link" :href="newLineCustomer" target="_blank">
                     <img class="line-icon" :src="require('../../assets/index/service.png')" />
