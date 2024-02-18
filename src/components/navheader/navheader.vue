@@ -182,7 +182,7 @@ export default {
             display: none;
         }
         .main-icon {
-            width: 146px;
+            width: 135px;
             height: 41px;
             margin-left: 0px;
         }

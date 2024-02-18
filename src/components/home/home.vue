@@ -102,7 +102,7 @@
                         <div class="wrap-game-show">
                             <div class="container-list-game-slot">
                                 <div class="list-game-bacarat">
-                                    <div class="game-menu" style="background-color: hsla(0,0%,100%,.1) !important;">
+                                    <div class="game-menu" style="background-color: #051C3E !important;">
                                         <img class="menu-icon" v-if="allGame.title" :src="require('../../assets/game/'+allGame.title+'.png')" />
                                         <span>{{allGame.title}}</span>
                                         <div class="right" @click="showAllGame(999)">
