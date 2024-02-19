@@ -70,7 +70,7 @@
             </div>
             <div class="main-wrap" :style="{width: isShowSlider ? 'calc(100% - 250px)' : 'calc(100% - 90px)', marginLeft: isShowSlider ? '250px' : '90px'}">
                 <HomePage v-if="tabIndex == 1" @toGame="toGame" @signin="signin" @reg="reg" @recharge="showPage(6)" @vip="showPage(11)"
-                @toForgot="showPage(7)"></HomePage>
+                @toForgot="showPage(7)" @toSaveDesktop="saveDesktop"></HomePage>
                 <ActivityPage v-if="tabIndex == 2" @detail="activityDetail"></ActivityPage>
                 <ActivityDetailPage v-if="tabIndex == 21" :id="id" @close="closeModal"></ActivityDetailPage>
                 <EmailPage v-if="tabIndex == 3" @detail="emailDetail"></EmailPage>
@@ -597,6 +597,7 @@ export default {
             if((!this.GLOBAL.userInfo.name || !this.GLOBAL.userInfo.pwd) & (index == 3 || index ==  4 || index == 6||index == 10))
             {
                 index = 5
+                this.isShowLoginBtn = false
             }
             if (this.tabIndex != index) {
                     this.tabIndex = index
