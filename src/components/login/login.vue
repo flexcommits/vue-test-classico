@@ -2,7 +2,6 @@
     <div class="main-page">
         <div class="close" @click="close">
             <img :src="require('../../assets/login/back.png')" />
-            <span>Back</span>
         </div>
         <div class="login-info">
             <div class="login-logo">
@@ -10,7 +9,7 @@
                     <img class="login-logo-img" :src="require('../../assets/login/logo.png')" />
                 </div>
             </div>
-            <div class="welcome">Welcome to Flcarrico. Have a good time!</div>
+            <div class="welcome">Welcome to tribo-win. Have a good time!</div>
             <div class="main-form">
                 <div id="name-box" class="login-info-item" @click="nameFocus">
                     <div class="v-box" style="position:relative;">
@@ -49,18 +48,15 @@
                             :src="require('../../assets/login/normal.png')" />
                         <span class="keep-login">{{ GLOBAL.lanLocal['keeplogin'] }}</span>
                     </div>
-                    <!-- <span class="forget-passcode" @click="toForgot">{{ GLOBAL.lanLocal['forgotpasscode'] }}?</span> -->
                 </div>
                 <div class="button-box">
                     <input class="login-button"
                         :class="nameempty || nameerror || passcodeempty || passcodeerror ? 'login-button-disable' : ''"
                         type="button" @click="doLogin" :value="GLOBAL.lanLocal['login']" />
                 </div>
-                <div class="tag-box">
-                    <div class="reg" @click="changeTag()">
-                        <div>{{GLOBAL.lanLocal['regnow'] }}</div>
-                        <div class="border-bottom"></div>
-                    </div>
+                <div class="button-box">
+                    <input class="reg"
+                        type="button" @click="changeTag()" :value="GLOBAL.lanLocal['regnow']" />
                 </div>
             </div>
         </div>
@@ -259,19 +255,17 @@ export default {
     text-align: center;
     box-sizing: border-box;
     position: relative;
-    background-color: #000;
+    background-color: #051C3E;
 
     .close {
         display:none;
         align-items:center;
         justify-content:flex-start;
+        margin-top: 10px;
+        margin-left: 5px;
         >img {
             height: 24px;
             width: auto;
-        }
-        >span {
-            color: #fff;
-            font-size: 14px;
         }
     }
 
@@ -284,12 +278,10 @@ export default {
 
 .login-info {
     margin-top: 100px;
-    background-color: #000;
+    background-color: #051C3E;
     position: relative;
     .login-logo {
-        position: absolute;
-        top: -65px;
-        left: 0;
+        margin-top: -100px;
         width: 100%;
         text-align: center;
         .login-logo-box {
@@ -297,14 +289,14 @@ export default {
             padding-top: 10px;
             margin: 0 auto;
             .login-logo-img {
-                width: auto;
-                height: 50px;
+                width: 135px;
+                height: 70px;
             }
         }
     }
 
     .welcome {
-        color: #a68574;
+        color: #3768AD;
         font-size: 14px;
         text-align: center;
     }
@@ -314,7 +306,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 }
 
@@ -324,19 +316,6 @@ export default {
     display: flex;
     align-items: flex-end;
     box-sizing: border-box;
-
-    .reg {
-        font-family: Arial;
-        font-size: 16px;
-        color: #fff;
-        .border-bottom {
-            margin-top: 6px;
-            visibility: hidden;
-            height: 3px;
-            width: 40px;
-            border-radius: 4px;
-        }
-    }
 
 
     .active {
@@ -359,7 +338,7 @@ export default {
     position: relative;
     color: #fff;
     padding-left: 10px;
-    background-color: #2c2b2b;
+    background-color: #020B1C;
 
     .v-box {
         display: flex;
@@ -389,7 +368,23 @@ export default {
 
 .button-box {
     margin-top: 24px;
-    width: 400px;
+    width: 450px;
+}
+
+.reg {
+    background: rgb(23,163,250);
+    background: linear-gradient(180deg, rgba(23,163,250,1) 0%, rgba(8,102,210,1) 70%);
+    color: black !important;
+    height: 44px;
+    min-width: 66.66666%;
+    padding: 0 19.5555555556px;
+    font-size: 12px !important;
+    letter-spacing: 0 !important;
+    border-radius: 6px !important;
+    transition: all .2s cubic-bezier(.02, .54, .58, 1);
+    border: none;
+    font-family: Arial;
+    padding: 0 20px;
 }
 
 .v-label {
@@ -451,7 +446,7 @@ export default {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 0 40px;
     box-sizing: border-box;
 
@@ -460,14 +455,14 @@ export default {
         align-items: center;
 
         .remember-img {
-            height: 20px;
-            width: 20px;
+            height: 30px;
+            width: 30px;
             margin-right: 4px;
         }
 
         .keep-login {
             font-family: Arial;
-            font-size: 12px;
+            font-size: 14px;
             color: #ffb600;
         }
     }
@@ -538,8 +533,9 @@ export default {
 }
 
 .login-button {
-    background: rgb(104, 50, 22);;
-    color: #fff !important;
+    background: rgb(255,203,39);
+    background: linear-gradient(180deg, rgba(255,203,39,1) 0%, rgba(230,158,24,1) 60%);
+    color: black !important;
     height: 44px;
     min-width: 66.66666%;
     padding: 0 19.5555555556px;
@@ -555,7 +551,10 @@ export default {
 @media only screen and (max-width: 450px) {
     .login-button {
         border-radius: 41px !important;
-        background: linear-gradient(180deg,#6892a4,#416375);
+    }
+
+    .reg {
+        border-radius: 41px !important;
     }
 }
 </style>

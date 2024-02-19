@@ -2,7 +2,6 @@
     <div class="main-page">
         <div class="close" @click="close">
             <img :src="require('../../assets/login/back.png')" />
-            <span>Back</span>
         </div>
         <div class="login-info">
             <div class="login-logo">
@@ -10,7 +9,7 @@
                     <img class="login-logo-img" :src="require('../../assets/login/logo.png')" />
                 </div>
             </div>
-            <div class="welcome">Welcome to Flcarrico. Have a good time!</div>
+            <div class="welcome">Welcome to tribo-win. Have a good time!</div>
             <div class="page-info" v-show="step == 1">
                 <div id="name-box" class="login-info-item" @click="nameFocus">
                     <div class="v-box" style="position:relative;">
@@ -61,7 +60,6 @@
                 </div>
                 <div id="nickname-box" class="login-info-item" @click="nicknameFocus">
                     <div class="v-box">
-                        <!-- <label class="v-label" :class="nicknameClass">{{GLOBAL.lanLocal['nickname']}}</label> -->
                         <input class="v-input" ref="nickname" type="text" :placeholder="GLOBAL.lanLocal['name']" @focus="nicknameFocus" @blur="nicknameBlur"
                             @input="nicknameInput" v-model="nickname" />
                     </div>
@@ -71,13 +69,11 @@
                 </div>
                 <div id="shareid-box" class="login-info-item" @click="shareidFocus">
                     <div class="v-box">
-                        <!-- <label class="v-label" :class="shareidClass">{{GLOBAL.lanLocal['shareid']}}</label> -->
                         <input class="v-input" ref="shareid" type="text" :placeholder="GLOBAL.lanLocal['shareid']" @focus="shareidFocus" @blur="shareidBlur"
                             @input="shareidInput" v-model="shareid" />
                     </div>
                 </div>
                 <div class="msg-box">
-                    <!-- <div class="login-info-message error-info">{{ shareidInfo }}</div> -->
                 </div>
                 <div class="d-flex register-condition">
                     <div
@@ -107,11 +103,9 @@
                         :class="nicknameempty || nicknameerror || nameempty || nameerror || passcodeempty || passcodeerror || passcodeempty2 || passcodeerror2 || !isAgree ? 'login-button-disable' : ''"
                         type="button" @click="doRegister" :value="GLOBAL.lanLocal['confirm']" />
                 </div>
-                <div class="tag-box">
-                    <div class="login" @click="changeTag()">
-                        <div>{{GLOBAL.lanLocal['login-low'] }}</div>
-                        <div class="border-bottom"></div>
-                    </div>
+                <div class="button-box">
+                    <input class="login"
+                        type="button" @click="changeTag" :value="GLOBAL.lanLocal['login-low']" />
                 </div>
             </div>
             <div class="protocal" :class="protocalClass">
@@ -656,19 +650,17 @@ export default {
     text-align: center;
     box-sizing: border-box;
     position: relative;
-    background-color: #000;
+    background-color: #051C3E;
 
     .close {
         display:none;
         align-items:center;
         justify-content:flex-start;
+        margin-top: 10px;
+        margin-left: 5px;
         >img {
             height: 24px;
             width: auto;
-        }
-        >span {
-            color: #fff;
-            font-size: 14px;
         }
     }
     @media only screen and (max-width: 450px) {
@@ -682,14 +674,12 @@ export default {
 
 .login-info {
     margin-top: 100px;
-    background-color: #000;
+    background-color: #051C3E;
     position: relative;
     
 
     .login-logo {
-        position: absolute;
-        top: -65px;
-        left: 0;
+        margin-top: -100px;
         width: 100%;
         text-align: center;
         .login-logo-box {
@@ -697,14 +687,14 @@ export default {
             padding-top: 10px;
             margin: 0 auto;
             .login-logo-img {
-                width: auto;
-                height: 50px;
+                width: 135px;
+                height: 70px;
             }
         }
     }
 
     .welcome {
-        color: #a68574;
+        color: #3768AD;
         font-size: 14px;
         text-align: center;
     }
@@ -714,7 +704,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 }
 
@@ -774,7 +764,7 @@ export default {
     position: relative;
     color: #fff;
     padding-left: 10px;
-    background-color: #2c2b2b;
+    background-color: #020B1C;
 
     .v-box {
         display: flex;
@@ -1148,7 +1138,8 @@ export default {
 }
 
 .login-button {
-    background: brown;
+    background: rgb(23,163,250);
+    background: linear-gradient(180deg, rgba(23,163,250,1) 0%, rgba(8,102,210,1) 70%);
     color: #fff !important;
     height: 44px;
     min-width: 66.66666%;
@@ -1162,11 +1153,36 @@ export default {
     padding: 0 20px;
 }
 
+.login {
+    margin-top: 15px;
+    background: rgb(255,203,39);
+    background: linear-gradient(180deg, rgba(255,203,39,1) 0%, rgba(230,158,24,1) 60%);
+    color: #fff !important;
+    height: 44px;
+    min-width: 66.66666%;
+    padding: 0 19.5555555556px;
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+    border-radius: 6px !important;
+    transition: all .2s cubic-bezier(.02, .54, .58, 1);
+    border: none;
+    font-family: Arial;
+    padding: 0 20px;
+}
+
 @media only screen and (max-width: 450px) {
     .login-button {
         width: 300px;
         border-radius: 41px !important;
-        background: linear-gradient(180deg,#6892a4,#416375);
+        background: rgb(23,163,250);
+        background: linear-gradient(180deg, rgba(23,163,250,1) 0%, rgba(8,102,210,1) 70%);
+    }
+
+    .login {
+        width: 300px;
+        border-radius: 41px !important;
+        background: rgb(255,203,39);
+        background: linear-gradient(180deg, rgba(255,203,39,1) 0%, rgba(230,158,24,1) 60%);
     }
 }
 
