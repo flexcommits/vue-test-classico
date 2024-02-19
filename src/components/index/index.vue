@@ -3,7 +3,7 @@
         <div class="background"></div>
         <NavHeader  @changeSlider="changeSlider"
             @setLan="changeLanCode" @toLogin="showPage(5)" @toReg="showPage(51)" @toRecharge="showPage(6)" :accountid="GLOBAL.userInfo.accountid"
-            :amount="amount" :lanData="lanData" @email="showPage(3)">
+            :amount="amount" :lanData="lanData" @email="showPage(3)" :isShowLoginBtn="isShowLoginBtn">
         </NavHeader>
         <div class="loading-masking" v-if="loading">
             <div class="loading-page">
@@ -208,6 +208,7 @@ export default {
             saveMasking: false,
             saveType: 0,
             webUrl: '',
+            isShowLoginBtn: true,
         }
     },
     created() {
@@ -589,6 +590,7 @@ export default {
 
         },
         showPage(index) {
+            if(index == 5 || index == 51) this.isShowLoginBtn = false
             this.isShowLan = false
             this.signCover = -1
             this.turntableType = -1
@@ -600,7 +602,8 @@ export default {
                     this.tabIndex = index
                     this.closeActive()
                     window.scrollTo(0,0)
-                }
+            }
+
         },
         changeSlider() {
             if (this.isShowSlider) {
@@ -658,6 +661,7 @@ export default {
                 this.showPage(1)
             }
             this.id = 0
+            this.isShowLoginBtn = true
         },
         changeLanCode(lanCode) {
             if (lanCode == this.lanCode) {

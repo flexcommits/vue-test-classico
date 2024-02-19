@@ -12,7 +12,7 @@
         <div class="right-item">
             <div class="btn-s" v-if="accountid == 0" @click="toReg">{{GLOBAL.lanLocal['register_upper']}}</div>
             <div class="btn-w" v-if="accountid == 0" @click="toLogin">{{GLOBAL.lanLocal['login']}}</div>
-            <div class="btn-user" v-if="accountid == 0" @click="toLogin">
+            <div class="btn-user" v-if="accountid == 0  && isShowLoginBtn == true" @click="toLogin">
                 <img :src="require('../../assets/login/user.png')" />
             </div>
             <div class="box-amount" v-if="accountid != 0">
@@ -72,6 +72,11 @@ export default {
             immediate: true,
             handler(newValue, oldValue) {
             }
+        },
+        isShowLoginBtn: {
+            immediate: true,
+            handler(newValue, oldValue) {
+            }
         }
     },
     props: {
@@ -86,6 +91,10 @@ export default {
         lanData: {
             type: Array,
             default: []
+        },
+        isShowLoginBtn: {
+            type: Boolean,
+            default: true,
         }
     },
     computed: {
@@ -128,7 +137,7 @@ export default {
     top: 0;
     left: 0;
     z-index: 3;
-    background: #141212;
+    background: #041332;
     padding: 8px 10px;
     height: 70px;
     width: 100%;
@@ -146,7 +155,7 @@ export default {
 
     
     .main-icon {
-        height: 50px;
+        height: 100px;
         width: 160px;
         margin-left: 14px;
     }
@@ -182,8 +191,8 @@ export default {
             display: none;
         }
         .main-icon {
-            width: 135px;
-            height: 41px;
+            width: auto;
+            height: 50px;
             margin-left: 0px;
         }
     }
