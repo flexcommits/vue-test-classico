@@ -834,7 +834,6 @@ export default {
         .nav-img {
             height: 30px;
             width: 30px;
-            margin-right: 5px;
         }
 
         .text-wrap {
