@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="main-page" v-if="!allGameCover">
-            <div class="line-box" style="bottom: 215px;">
-                <a class="contack-link" :href="lineCustomer" target="_blank">
-                    <img class="line-icon" style="width: 60px; height: 60px; margin-right: -5px;" :src="require('../../assets/save.png')" />
+            <div class="line-box" style="bottom: 225px;" @click="saveDesktop">
+                <a class="contack-link">
+                    <img class="line-icon" :src="require('../../assets/save.png')" />
                 </a>
             </div>
             <div class="line-box" style="bottom: 160px;">
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="nav-menu">
-                <div class="nav-item" v-for="(item, index) in navmenu" :style="{background: item.type == selectedNavItem ? 'linear-gradient(180deg,#6892a4,#416375)': ''}" :key="index + 1" @click="changnav(item.type)">
+                <div class="nav-item" v-for="(item, index) in navmenu" :style="{background: item.type == selectedNavItem ? '#3E9CD9': ''}" :key="index + 1" @click="changnav(item.type)">
                     <img class="nav-img" :src="item.img">
                     <div class="text-wrap" >{{ item.name }}</div>
                 </div>
@@ -59,7 +59,7 @@
                     <div class="view-game-container">
                         <div class="wrap-game-show">
                             <div class="container-list-game-slot">
-                                <div class="list-game-bacarat">
+                                <div class="list-game-bacarat" style="margin-bottom: 0px;">
                                     <template v-for="(game, index) in gameList">
                                         <div v-if="selectedNavItem==game.type" class="game-menu">
                                             <img class="menu-icon" :src="require('../../assets/game/'+game.title+'.png')" />
@@ -312,6 +312,9 @@ export default {
                     this.allGame.list.push(this.allGameLib.list[this.gameNo++])
                 }
             }
+        },
+        saveDesktop() {
+            this.$emit('toSaveDesktop')
         },
         toForgot() {
             this.$emit('toForgot')
@@ -1170,6 +1173,10 @@ export default {
     margin-bottom: 70px;
 }
 
+.all-game-board {
+    display: flex;
+}
+
 .game-menu {
     width: 100%;
     display: flex;
@@ -1202,7 +1209,7 @@ export default {
             text-align:center;
             font-size: 10px;
             font-family: Arial;
-            background: linear-gradient(180deg,#6892a4,#416375);
+            background: #2A67A0;
             border-radius: 10px;
             color: white;
             display: flex;
@@ -1524,6 +1531,7 @@ export default {
     border-top: 2px solid rgb(23,26,30);
     border-bottom: 2px solid rgb(23,26,30);
     padding: 14px 0;
+    background: rgba(3,15,31, 0.5);
     .cop-icon {
         display: flex;
         align-content:center;

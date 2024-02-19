@@ -1,6 +1,6 @@
 {
-    "website": "ACME777",
-    "weburl": "ACME777.com",
+    "website": "TEMPO",
+    "weburl": "TEMPO.com",
     "currency":"BRL",
     "currencySymbol":"R$",
     "sourceUrl": "http://127.0.0.1:8080/static/game/"

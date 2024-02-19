@@ -16,9 +16,8 @@
                 <img :src="require('../../assets/login/user.png')" />
             </div>
             <div class="box-amount" v-if="accountid != 0">
-                <img  @click="toRecharge" :src="require('../../assets/icon/recharge-icon.png')" />
                 <div style="flex: 1;padding-top:3px;">{{GLOBAL.currencySymbol}}&nbsp;{{amount}}</div>
-                <img :src="require('../../assets/icon/addicon.png')" />
+                <img :src="require('../../assets/icon/add.png')" @click="toRecharge"/>
             </div>
             <div v-if="accountid != 0" class="notification" @click="toEmail">
                 <img :src="require('../../assets/icon/notification.png')" />
@@ -247,7 +246,7 @@ export default {
 
         .box-amount {
             color: white;
-            background-color:#20242f;;
+            background-color:#1C3257;
             border-radius: 31px;
             display:flex;
             align-items:center;
@@ -256,8 +255,9 @@ export default {
             padding: 0 6px;
             height: 28px;
             line-height: 28px;
+            margin-right: 5px;
             >img {
-                height: 20px;
+                height: 15px;
                 width: auto;
                 margin-left: 6px;
             }
@@ -269,7 +269,7 @@ export default {
             align-items: center;
             >img {
                 width: 22px;
-                height: 22px;
+                height: 17px;
             }
         }
 
